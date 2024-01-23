@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strona Walentynkowa</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      background-color: #3498db; 
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    #heart {
+      font-size: 50px;
+      color: red;
+      transition: transform 0.3s, color 0.5s;
+      margin-top: 50px;
+    }
+
+    #przy1 {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #ff4d4d;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    #smiley {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="smiley">😊</div>
+<div id="heart">❤️</div>
+<button id="przy1">Kocham Cię</button>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function () {
+    var clickCount = 0;
+
+    $("#przy1").click(function () {
+      clickCount++;
+      $("body").css("background-color", "#3498db");
+
+      var smiley = $("#smiley");
+      smiley.css({
+        top: Math.random() * 50 + "px",
+        left: Math.random() * 50 + "px"
+      });
+
+      $("#heart").animate({
+        fontSize: '+=10px'
+      }, 300);
+    });
+  });
+</script>
+
+</body>
+</html>

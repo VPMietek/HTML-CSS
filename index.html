@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Strona z bazą danych</title>
+</head>
+<body>
+    <h1>Strona z bazą danych</h1>
+    <form id="data-form">
+        <label for="name">Imię:</label>
+        <input type="text" name="name" id="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        <br>
+        <label for="data">Dodatkowe informacje:</label>
+        <textarea name="data" id="data" required></textarea>
+        <br>
+        <button type="button" id="add-button">Dodaj do tabeli</button>
+    </form>
+    
+    <table id="data-table">
+        <tr>
+            <th>Imię</th>
+            <th>Email</th>
+            <th>Dodatkowe informacje</th>
+        </tr>
+        <!-- Tutaj wprowadź dane z formularza -->
+    </table>
+    
+    <button id="save-button">Zapisz dane do pliku</button>
+
+    <script>
+        document.getElementById("add-button").addEventListener("click", function() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var data = document.getElementById("data").value;
+
+            var table = document.getElementById("data-table");
+            var newRow = table.insertRow(-1);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            cell1.innerHTML = name;
+            cell2.innerHTML = email;
+            cell3.innerHTML = data;
+
+            document.getElementById("data-form").reset();
+        });
+
+        document.getElementById("save-button").addEventListener("click", function() {
+            var table = document.getElementById("data-table");
+            var dataToSave = "";
+
+            // Iteruj przez wiersze tabeli (pomijając wiersz nagłówka)
+            for (var i = 1; i < table.rows.length; i++) {
+                var row = table.rows[i];
+                for (var j = 0; j < row.cells.length; j++) {
+                    dataToSave += row.cells[j].textContent + "\t"; // Dodaj dane oddzielone tabulatorem
+                }
+                dataToSave += "\n"; // Nowy wiersz
+            }
+
+            // Zapisz dane bezpośrednio do pliku
+            var blob = new Blob([dataToSave], { type: "text/plain" });
+            var url = window.URL.createObjectURL(blob);
+
+            // Stwórz link do pobrania danych
+            var a = document.createElement("a");
+            a.style.display = "none";
+            document.body.appendChild(a);
+            a.href = url;
+            a.download = "dane.txt";
+
+            // Kliknij link, co wyzwoli zapis do pliku
+            a.click();
+
+            // Zwalniamy zasoby
+            window.URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>

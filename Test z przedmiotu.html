@@ -1,0 +1,161 @@
+<form name="" id=""style="display:none" >
+    <fieldset><legend> Pytanie 2</legend>			 
+    <p>	
+        Kto był głównym dowódcą armii amerykańskiej podczas</br> wojny o niepodległość Stanów Zjednoczonych?
+    </p>
+    <input type="radio" name="pytanie1" value=""><br>
+    <input type="radio" name="pytanie1" value=""><br>
+    <input type="radio" name="pytanie1" value=""><br>
+    <input type="radio" name="pytanie1" value="">
+    <input type="hidden" name="odp" value=""><br>			
+    <input type="button" name="button" value="OK" onclick = "sprawdzRadio('2')">
+    </fieldset>
+</form>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test Z Historii</title>
+		<meta charset="utf-8"/>
+	</head>
+	
+	
+
+	<body>
+		<h3>Test Z Historii</h3>
+		
+		<div id="daneI">
+			Podaj Imię I Nazwisko: <input type="text" id="imienazwisko"> 
+			<input type="button" value = "Rozpocznij" 
+				onclick = "rozpocznij()"><br><br>
+		</div>
+        <div id="punkty">Punkty: 0</div>
+		<!-------------------------------------radio----------------------------------->
+		<form name="1" id="1"style="display:none" >
+			<fieldset><legend> Pytanie 1</legend>			 
+			<p>	
+				Który z władców zjednoczył </br>Niemcy podczas procesu germanizacji w XIX wieku?
+			</p>
+			<input type="radio" name="pytanie1" value="Napoleon Bonaparte">Napoleon Bonaparte<br>
+			<input type="radio" name="pytanie1" value="Otto von Bismarck">Otto von Bismarck<br>
+			<input type="radio" name="pytanie1" value="Wilhelm II">Wilhelm II<br>
+			<input type="radio" name="pytanie1" value="Adolf ">Adolf 
+			<input type="hidden" name="odp" value="Otto von Bismarck"><br>			
+			<input type="button" name="button" value="OK" onclick = "sprawdzRadio('1')">
+			</fieldset>
+		</form>
+        <form name="2" id="2"style="display:none" >
+			<fieldset><legend> Pytanie 2</legend>			 
+			<p>	
+				Kto był głównym dowódcą armii amerykańskiej podczas</br> wojny o niepodległość Stanów Zjednoczonych?
+			</p>
+			<input type="radio" name="pytanie2" value="George Washington">George Washington<br>
+			<input type="radio" name="pytanie2" value="Thomas Jefferson">Thomas Jefferson<br>
+			<input type="radio" name="pytanie2" value="Benjamin Franklin">Benjamin Franklin<br>
+			<input type="radio" name="pytanie2" value="John Adams">John Adams
+			<input type="hidden" name="odp" value="George Washington"><br>			
+			<input type="button" name="button" value="OK" onclick = "sprawdzRadio('2')">
+			</fieldset>
+		</form>
+        <form name="3" id="3"style="display:none" >
+            <fieldset><legend> Pytanie 3</legend>			 
+            <p>	
+                Kto był przywódcą bolszewików podczas rewolucji październikowej w 1917 roku?
+            </p>
+            <input type="radio" name="pytanie3" value="Włodzimierz Lenin">Włodzimierz Lenin<br>
+            <input type="radio" name="pytanie3" value="Józef Stalin">Józef Stalin<br>
+            <input type="radio" name="pytanie3" value="Leon Trocki">Leon Trocki<br>
+            <input type="radio" name="pytanie3" value="Maksym Gorki"> Maksym Gorki
+            <input type="hidden" name="odp" value="Włodzimierz Lenin"><br>			
+            <input type="button" name="button" value="OK" onclick = "sprawdzRadio('3')">
+            </fieldset>
+        </form>
+        <form name="4" id="4"style="display:none" >
+            <fieldset><legend> Pytanie 2</legend>			 
+            <p>	
+                W którym roku rozpoczęła się rewolucja francuska?
+            </p>
+            <input type="radio" name="pytanie4" value="1776"><br>1776
+            <input type="radio" name="pytanie4" value="1789"><br>1789
+            <input type="radio" name="pytanie4" value="1812"><br>1812
+            <input type="radio" name="pytanie4" value="1848">1848
+            <input type="hidden" name="odp" value="1789"><br>			
+            <input type="button" name="button" value="OK" onclick = "sprawdzRadio('4')">
+            </fieldset>
+            </form>
+            <form name="5" id="5"style="display:none" >
+                <fieldset><legend> Pytanie 2</legend>			 
+                <p>	
+                    Jak nazywano okres odbudowy po II wojnie światowej w Europie?
+                </p>
+                <input type="radio" name="pytanie5" value="">Odbudowa<br>
+                <input type="radio" name="pytanie5" value="Plan Nowej Nadzieji"><br>
+                <input type="radio" name="pytanie5" value="Plan odbudowy"><br>
+                <input type="radio" name="pytanie5" value="Plan Marshalla">Plan Marshalla
+                <input type="hidden" name="odp" value="Plan Marshalla"><br>			
+                <input type="button" name="button" value="OK" onclick = "sprawdzRadio('5')">
+                </fieldset>
+            </form>
+<script>
+    const liczbaPytan = 5;
+			
+			
+			function rozpocznij(){
+				document.querySelector('#daneI').innerHTML = 
+				'Witaj Powodzenia  ' + document.querySelector('#imienazwisko').value + '!<br><br>'
+				document.getElementById("1").style.display="block";
+			}
+			
+			function sprawdzRadio(nrPyt){
+				let pyt = document.getElementById(nrPyt)
+				if(pyt.R1.value == pyt.odp.value){
+					document.getElementById("punkty").value++;
+				}
+				pyt.style.display='none';
+				nrPyt = parseInt(nrPyt);
+				if(nrPyt+1 >liczbaPytan) {
+					document.getElementById("przeglad").style.display="block";
+					return;
+				}
+				document.getElementById(nrPyt+1).style.display='block';
+				
+			}
+            function sprawdzCBox(nrPyt){
+				let pyt = document.getElementById(nrPyt);
+				let wynik ="";
+				let odpowiedz = document.getElementById(nrPyt).CBox;
+				for(let i=0; i<4; i++){
+					if(odpowiedz[i].checked) wynik+=odpowiedz[i].value + " ";
+					
+				}
+							
+				if(wynik == pyt.odp.value){
+					document.getElementById("punkty").value++;
+				}
+				pyt.style.display='none';
+				nrPyt = parseInt(nrPyt);
+				if(nrPyt+1 >liczbaPytan) {
+					document.getElementById("przeglad").style.display="block";
+					return;
+				}
+				document.getElementById(nrPyt+1).style.display='block';
+				
+			}
+			
+			function sprawdzSelect(nrPyt){
+				let pyt = document.getElementById(nrPyt)
+				if(pyt.S1.value == pyt.odp.value){
+					document.getElementById("punkty").value++;
+				}
+				pyt.style.display='none';
+				nrPyt = parseInt(nrPyt);
+				if(nrPyt+1 >liczbaPytan) {
+					document.getElementById("przeglad").style.display="block";
+					return;
+				}
+				document.getElementById(nrPyt+1).style.display='block';
+				
+			}
+</script>
+		</body>
+</html>

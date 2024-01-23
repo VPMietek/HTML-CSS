@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form1</title>
+    <script>
+        function komis2(){
+            if (document.komis.samochod.value.length < 1) {
+            alert("Popraw/Wpisz Nazwę Pojazdu");
+            }
+            if (document.komis.model.value.length < 3) {
+            alert("Popraw/Wpisz Model Pojazdu");
+            }
+            if (document.komis.rocznik.value.length < 3) {
+            alert("Popraw/Wpisz Rocznik Pojazdu");
+            }
+            if (document.komis.tablice.value.length < 3) {
+            alert("Popraw/Wpisz Tablice Pojazdu");
+            }
+            if (document.komis.przebieg.value.length < 3) {
+            alert("Popraw/Wpisz Przebieg Pojazdu");
+            }
+            if (document.komis.silnik.value.length < 3) {
+            alert("Popraw/Wpisz Silnik Pojazdu");
+            }
+            if (document.komis.data.value.length < 3) {
+            alert("Popraw/Wpisz Date Wpisu Pojazdu");
+            }
+            if (document.komis.autor.value.length < 3) {
+            alert("Popraw/Wpisz Autora Wpisu Pojazdu");
+            }
+        }
+    </script>
+    <script>
+        function klienci2(){
+            if (document.klienci.imie.value.length < 1) {
+            alert("Popraw/Wpisz Imię");
+            }
+            if (document.klienci.nazwisko.value.length < 1) {
+            alert("Popraw/Wpisz Nazwisko");
+            }
+        }
+    </script>
+    <script>
+        function rezerwacje2(){
+            
+        }
+    </script>
+</head>
+<body>
+    <h2>Wpis Samochodów</h2>
+    <form action="" method="" name="komis">
+        <h4>Samochód</h4> <input type="text" name="samochod" >
+        <h4>Model</h4> <input type="text" name="model">
+        <h4>Rocznik</h4> <input type="number" name="rocznik" >
+        <h4>Tablice</h4> <input type="text" name="tablice" >
+        <h4>Przebieg</h4> <input type="number" name="przebieg" >
+        <h4>Silnik</h4> <input type="text" name="silnik" >
+        <h4>Data_Wpisu</h4><input type="date" name="data" >
+        <h4>Autor_Wpisu</h4><input type="text" name="autor" >
+        <input type="button" onclick="komis2()" name="wyslij" value="Wyślij"></br>
+    </form>
+    <h2>Wpis Klientów</h2>
+    <form action="" method="" name="klienci">
+        <h4>Imię</h4> <input type="text" name="imie" >
+        <h4>Nazwisko</h4> <input type="text" name="nazwisko" >
+        <h4>Adres</h4> <input type="text" name="adres" >
+        <h4>Data_Wpisu</h4><input type="date" name="data2" >
+    </form>
+    <input type="button" onclick="klienci2()" name="wyslij" value="Wyślij"></br>
+    <h2>Wpis rezerwacji</h2>
+    <form action="" method="" name="rezerwacje">
+        <h4>Klient</h4> <input type="text" name="klient" >
+        <h4>Samochod</h4><input type="text" name="samochod2" >
+        <h4>Data_Rezerwacji</h4><input type="date" name="data4" >
+        <h4>Data_Wpisu</h4><input type="date" name="data3" >
+        <input type="button" onclick="rezerwacje2()" name="wyslij" value="Wyślij"></br>
+    </form>
+   
+</body>
+</html>

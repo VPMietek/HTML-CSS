@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test z PAI</title>
+		<meta charset="utf-8"/>
+	</head>
+	
+	
+
+	<body>
+		<h3>Test z PAI</h3>
+		
+		<div id="daneI">
+			Podaj imię: <input type="text" id="imie"> 
+			<input type="button" value = "Rozpocznij" 
+				onclick = "rozpocznij()"><br><br>
+		</div>
+		<!-------------------------------------radio----------------------------------->
+		<form name="1" id="1"style="display:none" >
+			<fieldset><legend> Pytanie 1</legend>			 
+			<h5>console.log("Imię ucznia: ", uczen.imie); </h5>
+			<p>	
+				W podanym kodzie metodą jest:
+			</p>
+			<input type="radio" name="R1" value="nie">console<br>
+			<input type="radio" name="R1" value="tak">log<br>
+			<input type="radio" name="R1" value="nie">uczen<br>
+			<input type="radio" name="R1" value="nie">imie
+			<input type="hidden" name="odp" value="tak"><br>			
+			<input type="button" name="button" value="OK" onclick = "sprawdzRadio('1')">
+			</fieldset>
+		</form>
+		<form name="2" id="2" style="display:none">
+			<fieldset><legend> Pytanie 2</legend>
+			<p> 
+				Wskaż funkcję, która w zależności od wybranych opcji,<br>dodaje lub usuwa elementy tablicy:
+			</p>			
+			<input type="radio" name="R1" value="tak">splice<br>
+			<input type="radio" name="R1" value="nie">push<br>
+			<input type="radio" name="R1" value="nie">pop<br>
+			<input type="radio" name="R1" value="nie">shift<br>
+			<input type="radio" name="R1" value="nie">unshift<br>
+			<input type="radio" name="R1" value="nie">join
+			<input type="hidden" name="odp" value="tak"><br>
+			<input type="button" name="button" value="OK" onclick = "sprawdzRadio('2','nie')">
+			</fieldset>
+		</form>
+		<!----------------------------------checkbox----------------------------------->
+		<form name="3" id="3" style="display:none">
+			<fieldset><legend> Pytanie 3</legend>
+			<h5>console.log("Imię ucznia: ", uczen.imie); </h5>
+			<p> 
+				W podanym kodzie obiektem <b>nie</b> jest:
+			</p>
+			<input type="checkbox" name="CBox" value="console" >console<br>
+			<input type="checkbox" name="CBox" value="log">log<br>
+			<input type="checkbox" name="CBox" value="uczen" >uczen<br>
+			<input type="checkbox" name="CBox" value="imie" >imie
+			<input type="hidden" name="odp" value="log imie "><br>
+			<input type="button" name="button" value="OK" onclick = "sprawdzCBox('3','tak')">
+			</fieldset>
+		</form>
+		
+		<form name="4" id="4" style="display:none">
+			<fieldset><legend> Pytanie 4</legend>
+			<p> 
+				Wskaż poprawne metody utworzenia tablicy liczby:
+			</p>
+			<input type="checkbox" name="CBox" value="tak" >const liczby = [1, 2, 3];<br>
+			<input type="checkbox" name="CBox" value="tak">let liczby = [];<br>
+			<input type="checkbox" name="CBox" value="tak" >var liczby = new Array();<br>
+			<input type="checkbox" name="CBox" value="tak" >let liczby = new Array(1, 2, 3);
+			<input type="hidden" name="odp" value="tak tak tak tak "><br>
+			<input type="button" name="button" value="OK" onclick = "sprawdzCBox('4','tak')">
+			</fieldset>
+		</form>
+		<!-----------------------------------select----------------------------------->
+		<form name="5" id="5" style="display:none">
+			<fieldset><legend> Pytanie 5</legend>
+			<p> 
+				Wybierz funkcję, która <b>nie</b> pozwoli wybrać fragment tekstu z podanego ciągu znaków:
+			</p>
+			<select name="S1" size="4" value="">
+				<option>split</option>
+				<option>substr</option>
+				<option>substring</option>
+				<option>replace</option>
+			</select>
+			<input type="hidden" name="odp" value="replace"><br>
+			<input type="button" name="button" value="OK" onclick = "sprawdzSelect('5','tak')">
+			</fieldset>
+		</form>
+		
+		<form name="6" id="6" style="display:none">
+			<fieldset><legend> Pytanie 6</legend>
+			<p>
+				Aby trzy pola typu "radio" pozwalały wybrać tylko jedną opcję, należy w każdym elemecie typu radio utawić: 
+			</p>
+			<select name="S1" size="4" value="">
+				<option>taką samą wartość atrybutu name</option>
+				<option>taką samą wartość atrybutu id</option>
+				<option>taką samą wartość atrybutu value</option>
+				<option>taką samą wartość atrybutu style</option>
+			</select>
+			<input type="hidden" name="odp" value="taką samą wartość atrybutu name"><br>
+			<input type="button" name="button" value="OK" onclick = "sprawdzSelect('6','tak')">
+			</fieldset>
+		</form>
+		<!-----------------------------podsumowanie----------------------------------->
+		<div>
+			Punkty: <input type="button" name="punkty" id = "punkty" value="0" >
+			<p id = "przeglad" style = "display:none">Twoje odpowiedzi:  </p>
+		</div>
+		
+		<script>
+			const liczbaPytan = 6;
+			//let odpowiedzi=[];
+			
+			function rozpocznij(){
+				document.querySelector('#daneI').innerHTML = 
+				'Cześć ' + document.querySelector('#imie').value + '!<br><br>'
+				document.getElementById("1").style.display="block";
+			}
+			
+			function sprawdzRadio(nrPyt){
+				let pyt = document.getElementById(nrPyt)
+				if(pyt.R1.value == pyt.odp.value){
+					document.getElementById("punkty").value++;
+				}
+				pyt.style.display='none';
+				nrPyt = parseInt(nrPyt);
+				if(nrPyt+1 >liczbaPytan) {
+					document.getElementById("przeglad").style.display="block";
+					return;
+				}
+				document.getElementById(nrPyt+1).style.display='block';
+				
+			}
+			
+			function sprawdzCBox(nrPyt){
+				let pyt = document.getElementById(nrPyt);
+				let wynik ="";
+				let odpowiedz = document.getElementById(nrPyt).CBox;
+				for(let i=0; i<4; i++){
+					if(odpowiedz[i].checked) wynik+=odpowiedz[i].value + " ";
+					//alert(wynik);
+				}
+							
+				if(wynik == pyt.odp.value){
+					document.getElementById("punkty").value++;
+				}
+				pyt.style.display='none';
+				nrPyt = parseInt(nrPyt);
+				if(nrPyt+1 >liczbaPytan) {
+					document.getElementById("przeglad").style.display="block";
+					return;
+				}
+				document.getElementById(nrPyt+1).style.display='block';
+				
+			}
+			
+			function sprawdzSelect(nrPyt){
+				let pyt = document.getElementById(nrPyt)
+				if(pyt.S1.value == pyt.odp.value){
+					document.getElementById("punkty").value++;
+				}
+				pyt.style.display='none';
+				nrPyt = parseInt(nrPyt);
+				if(nrPyt+1 >liczbaPytan) {
+					document.getElementById("przeglad").style.display="block";
+					return;
+				}
+				document.getElementById(nrPyt+1).style.display='block';
+				
+			}
+		</script>
+		
+	</body>
+</html>
+
+
