@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przyciski</title>
+    <style>
+        .zmianawyglad {
+            margin: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        
+        <input type="button" id="input1" class="zmianawyglad" value="Widzowie" onmousedown="zmienstyl(this)">
+        
+        
+        <input type="button" id="input2" class="zmianawyglad" value="siemanko" onmousedown="zmienstyl(this)">
+    </form>
+
+    <script>
+        function zmienstyl(siemanko) {
+            siemanko.style.fontWeight = "bold";
+            siemanko.style.color = "blue";
+            siemanko.style.backgroundColor = "red";
+        }
+    </script>
+</body>
+</html>

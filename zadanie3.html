@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zdjęcia dla ambitnych</title>
+</head>
+<body>
+    <style>
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .zdjeci {
+            cursor: pointer;
+        }
+
+        #wiekszezdjęcie2 {
+            margin-top: 100px;
+        }
+
+        #wiekszezdjęcie {
+            width: 500px;
+            height: 500px;
+            border: 2px solid #555;
+        }
+    </style>
+    <div class="galeria" id="galeria">
+        <img class="zdjeci" src="image1.jpg" alt="zdjeci 1" onclick="duże('image1.jpg')">
+        <img class="zdjeci" src="image2.jpg" alt="zdjeci 2" onclick="duże('image2.jpg')">
+        <img class="zdjeci" src="image3.jpg" alt="zdjeci 3" onclick="duże('image3.jpg')">
+        <img class="zdjeci" src="image4.jpg" alt="zdjeci 4" onclick="duże('image4.jpg')">
+        <img class="zdjeci" src="image5.jpg" alt="zdjeci 5" onclick="duże('image5.jpg')">
+    </div>
+    <div id="wiekszezdjęcie2">
+        <img id="wiekszezdjęcie" alt="wiekszezdjęcie">
+    </div>
+    <script>
+        function duże(zdjecia) {
+            const wiekszezdjęcie = document.getElementById('wiekszezdjęcie');
+            wiekszezdjęcie.src = zdjecia;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Przycisk2</title>
+</head>
+<body>
+
+<div id="przyciski">
+  <button name="przycisk1" value="100" onclick="kliknij(this)">Przycisk1</button>
+  <button name="przycisk2" value="200" onclick="kliknij(this)">Przycisk2</button>
+  <button name="przycisk3" value="300" onclick="kliknij(this)">Przycisk3</button>
+  <button name="przycisk4" value="400" onclick="kliknij(this)">Przycisk4</button>
+  <button name="przycisk5" value="500" onclick="kliknij(this)">Przycisk5</button>
+</div>
+
+<span id="wynik"></span>
+
+<script>
+  function kliknij(button) {
+    var nazwa = button.name;
+    var wartosc = button.value;
+    var wynikElement = document.getElementById('wynik');
+    wynikElement.textContent = "Nazwa: " + nazwa + " Wartość: " + wartosc;
+  }
+</script>
+
+</body>
+</html>

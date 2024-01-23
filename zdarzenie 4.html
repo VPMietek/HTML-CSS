@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zdarzenie 4</title>
+  <style>
+    #mojDiv {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+    }
+
+    #wynikTekst {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div id="mojDiv" onmouseover="pokazTekst()" onmouseout="ukryjTekst()"></div>
+<span id="wynikTekst"></span>
+
+<script>
+  function pokazTekst() {
+    var wynikElement = document.getElementById('wynikTekst');
+    wynikElement.textContent = "Najechałeś";
+  }
+
+  function ukryjTekst() {
+    var wynikElement = document.getElementById('wynikTekst');
+    wynikElement.textContent = "Zjechałeś";
+  }
+</script>
+
+</body>
+</html>

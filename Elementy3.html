@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementy 3 </title>
+</head>
+<body>
+    <button id="jeden">Jeden</button>
+    <div id="napis1"></div>
+    <button id="dwa">Dwa</button>
+    <div id="napis2"></div>
+    <button id="trzy">Trzy</button>
+    <div id="napis3"></div>
+    <script>
+        const jeden=document.querySelector('#jeden');
+        const dwa=document.querySelector('#dwa');
+        const trzy=document.querySelector('#trzy');
+        jeden.addEventListener("click", function(){
+            napis1.innerHTML='<h2>Jeden</h2>'
+        })
+        dwa.addEventListener("click", function(){
+            napis2.innerHTML='<h2>Dwa</h2>'
+        })
+        trzy.addEventListener("click", function(){
+            napis3.innerHTML='<h2>Trzy</h2>'
+        })
+    </script>
+</body>
+</html>
+
+

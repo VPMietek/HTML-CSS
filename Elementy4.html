@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementy4</title>
+</head>
+<body>
+    
+    <button class="elementy" id="przycisk">Jeden</button>
+    <div class="elementy" id="element_div">Dwa</div>
+    <span class="elementy" id="element_span">Trzy</span>
+    <div id="opis"></div>
+    <script>
+        const przycisk=document.querySelector('#jeden');
+        const element_div=document.querySelector('#dwa');
+        const element_span=document.querySelector('#trzy')
+        const elementy=document.querySelector('#elementy');
+        const opis=document.querySelector('#opis');
+        elementy.addEventListener("click",function(){
+            opis.innerHTML=this.id;
+        })
+
+    </script>
+</body>
+</html>
